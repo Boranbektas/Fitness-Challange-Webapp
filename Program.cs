@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Fitness.Data;
+using Fitness.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,10 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+var connectionString2 = builder.Configuration.GetConnectionString("FitnessDatabaseConnection") ?? throw new InvalidOperationException("Connection string 'MyConnection' not found.");
+builder.Services.AddDbContext<FitnessDatabaseContext>(options =>
+    options.UseSqlServer(connectionString2));
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
