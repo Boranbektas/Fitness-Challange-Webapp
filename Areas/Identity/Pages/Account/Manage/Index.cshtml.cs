@@ -69,6 +69,9 @@ namespace Fitness.Areas.Identity.Pages.Account.Manage
         public BufferedSingleFileUploadDb FileUploadDb { get; set; }=new BufferedSingleFileUploadDb();
 
         public byte[]? Picture { get; set; }
+        public string Bio {get;set;}
+        [BindProperty,MaxLength(300)]
+        public string NewBio {get;set;}
 
         
         public UserDetail? ProfileDetail{ get; set; }
@@ -109,7 +112,13 @@ namespace Fitness.Areas.Identity.Pages.Account.Manage
                 };
                 _context.UserDetails.Add(ProfileDetail);
                 await _context.SaveChangesAsync();
-            }   
+            }
+            if(ProfileDetail!=null && ProfileDetail.UserDetailBio!=null){
+                Bio=ProfileDetail.UserDetailBio;
+            }
+            else{
+                Bio="Your biography is empty.You Can add biography from bellow!";
+            }  
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -150,8 +159,8 @@ namespace Fitness.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            ProfileDetail =_context.UserDetails.Where(r=>r.UserDetailUserId == user.Id).FirstOrDefault();
 
+            ProfileDetail =_context.UserDetails.Where(r=>r.UserDetailUserId == user.Id).FirstOrDefault();
             if(FileUploadDb.formFile !=null)
             {
                 var memoryStream =new MemoryStream();
@@ -162,6 +171,12 @@ namespace Fitness.Areas.Identity.Pages.Account.Manage
                     _context.UserDetails.Update(ProfileDetail);
                 }
             }
+
+            if(NewBio !=null){
+                ProfileDetail.UserDetailBio = NewBio;
+                _context.UserDetails.Update(ProfileDetail);
+            }
+
             await _context.SaveChangesAsync();
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
