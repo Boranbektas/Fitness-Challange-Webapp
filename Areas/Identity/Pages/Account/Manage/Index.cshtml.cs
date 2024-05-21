@@ -6,9 +6,11 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using Fitness.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+
 
 namespace Fitness.Areas.Identity.Pages.Account.Manage
 {
@@ -16,13 +18,17 @@ namespace Fitness.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly FitnessDatabaseContext _context;
 
         public IndexModel(
             UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<IdentityUser> signInManager,
+            FitnessDatabaseContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _context = context;
+
         }
 
         /// <summary>
@@ -59,6 +65,18 @@ namespace Fitness.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
         }
+        [BindProperty]
+        public BufferedSingleFileUploadDb FileUploadDb { get; set; }=new BufferedSingleFileUploadDb();
+
+        public byte[]? Picture { get; set; }
+
+        
+        public UserDetail? ProfileDetail{ get; set; }
+        public class BufferedSingleFileUploadDb
+        {
+            [Display(Name="Profile Picture")]
+            public IFormFile ?formFile{ get; set; }
+        }
 
         private async Task LoadAsync(IdentityUser user)
         {
@@ -69,8 +87,29 @@ namespace Fitness.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                
             };
+
+            ProfileDetail = _context.UserDetails.Where(r=>r.UserDetailUserId == user.Id).FirstOrDefault();
+            if(ProfileDetail != null && ProfileDetail.UserDetailPhoto != null){
+                Picture = ProfileDetail.UserDetailPhoto;
+            }
+            else{
+                //Save default image if no porifle photo is avaible
+                string path ="./wwwroot/images/empty_pfp.jpg";
+                using var stream = System.IO.File.OpenRead(path);
+                var memoryStream = new MemoryStream();
+                await stream.CopyToAsync(memoryStream);
+                Picture = memoryStream.ToArray();
+                ProfileDetail = new UserDetail 
+                {
+                    UserDetailPhoto =Picture,
+                    UserDetailUserId = user.Id
+                };
+                _context.UserDetails.Add(ProfileDetail);
+                await _context.SaveChangesAsync();
+            }   
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -111,8 +150,22 @@ namespace Fitness.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
+            ProfileDetail =_context.UserDetails.Where(r=>r.UserDetailUserId == user.Id).FirstOrDefault();
+
+            if(FileUploadDb.formFile !=null)
+            {
+                var memoryStream =new MemoryStream();
+                await FileUploadDb.formFile.CopyToAsync(memoryStream);
+                if(ProfileDetail != null)
+                {
+                    ProfileDetail.UserDetailPhoto = memoryStream.ToArray();
+                    _context.UserDetails.Update(ProfileDetail);
+                }
+            }
+            await _context.SaveChangesAsync();
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }
     }
+    
 }

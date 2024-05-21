@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness\\wwwroot\\images\\empty_pfp.jpg",
+      "PackagePath": "staticwebassets\\images\\empty_pfp.jpg"
+    },
+    {
       "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

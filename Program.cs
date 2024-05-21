@@ -17,6 +17,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 var connectionString2 = builder.Configuration.GetConnectionString("FitnessDatabaseConnection") ?? throw new InvalidOperationException("Connection string 'MyConnection' not found.");
 builder.Services.AddDbContext<FitnessDatabaseContext>(options =>
     options.UseSqlServer(connectionString2));
+    
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

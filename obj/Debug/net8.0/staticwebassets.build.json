@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EaJm5tTvmUYDeSGwol7lOVwyaoVtk12Z/DDHeuhKr0U=",
+  "Hash": "xFQ64TUzqt1weAk8rCHFm8sO9w+VCmTyJdNVpueE4Wg=",
   "Source": "Fitness",
   "BasePath": "_content/Fitness",
   "Mode": "Default",
@@ -1231,6 +1231,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\382\\Fitness\\wwwroot\\images\\empty_pfp.jpg",
+      "SourceId": "Fitness",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\382\\Fitness\\wwwroot\\",
+      "BasePath": "_content/Fitness",
+      "RelativePath": "images/empty_pfp.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\empty_pfp.jpg"
     },
     {
       "Identity": "C:\\Users\\USER\\Desktop\\382\\Fitness\\wwwroot\\js\\site.js",
