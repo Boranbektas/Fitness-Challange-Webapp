@@ -1,0 +1,53 @@
+﻿@page
+@using static MyApp.Namespace.ChallengeFormModel
+@model MyApp.Namespace.ChallengeFormModel
+@{
+    ViewData["Title"]= "Add Challenge";
+}
+
+<h3 style="text-align:center">Post a Challenge!</h3>
+
+
+
+@if (!string.IsNullOrEmpty(Model.StatusMessage))
+{
+    <div class="alert alert-@(Model.StatusMessage.StartsWith("Challenge created") ? "success" : "danger")" role="alert">
+        @Model.StatusMessage
+    </div>
+}
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="NewChallenge.ChallangeName">Challenge Name:</label>
+        <input asp-for="NewChallenge.ChallangeName" class="form-control" />
+        <span asp-validation-for="NewChallenge.ChallangeName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewChallenge.ChallangeDesc">Challenge Description:</label>
+        <textarea asp-for="NewChallenge.ChallangeDesc" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="NewChallenge.ChallangeDesc" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewChallenge.ChallangeStartDate">Start Date:</label>
+        <input asp-for="NewChallenge.ChallangeStartDate" type="date" class="form-control" />
+        <span asp-validation-for="NewChallenge.ChallangeStartDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewChallenge.ChallangeEndDate">End Date:</label>
+        <input asp-for="NewChallenge.ChallangeEndDate" type="date" class="form-control" />
+        <span asp-validation-for="NewChallenge.ChallangeEndDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewChallenge.ChallangeDifficulty">Difficulty (1-10):</label>
+        <input asp-for="NewChallenge.ChallangeDifficulty" type="number" min="1" max="10" class="form-control"/>
+        <span asp-validation-for="NewChallenge.ChallangeDifficulty" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewChallenge.ChallangeCategory">Category:</label>
+        <select asp-for="NewChallenge.ChallangeCategory" asp-items="Model.CategoryOptions" class="form-control">
+            <option value="">Select Category</option>
+        </select>
+        <span asp-validation-for="NewChallenge.ChallangeCategory" class="text-danger"></span>
+    </div><br>
+    <button type="submit" class="btn btn-primary">Create Challenge</button>
+</form>
