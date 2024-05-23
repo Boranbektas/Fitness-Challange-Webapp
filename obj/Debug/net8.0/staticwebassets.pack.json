@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\Fitness.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness\\wwwroot\\css\\Challenge.css",
+      "PackagePath": "staticwebassets\\css\\Challenge.css"
+    },
+    {
+      "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

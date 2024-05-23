@@ -1,0 +1,17 @@
+
+h3{
+    color:white;
+}
+
+.challangeBox{
+    width: 500px;
+    padding: 30px;
+    position: absolute;
+    top:  50%;
+    left: 63%;
+    background: #191919;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 60px;
+    color:white
+}

@@ -5,7 +5,6 @@
     ViewData["Title"]= "Add Challenge";
 }
 
-<h3 style="text-align:center">Post a Challenge!</h3>
 
 
 
@@ -15,8 +14,10 @@
         @Model.StatusMessage
     </div>
 }
-
-<form method="post">
+<div class="row col-md-6">
+<div class="card">
+<form method="post" class="challangeBox">
+    <h3 style="text-align:centerm">Post a Challenge!</h3>
     <div class="form-group">
         <label asp-for="NewChallenge.ChallangeName">Challenge Name:</label>
         <input asp-for="NewChallenge.ChallangeName" class="form-control" />
@@ -51,3 +52,5 @@
     </div><br>
     <button type="submit" class="btn btn-primary">Create Challenge</button>
 </form>
+</div>
+</div>
