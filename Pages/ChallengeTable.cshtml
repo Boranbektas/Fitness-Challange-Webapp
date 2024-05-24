@@ -15,9 +15,15 @@
         <div>
             <p>
                 Find by Name:
-                <input type="text" name="NameSearchString" value="@Model.CurrentFilter"/>&nbsp;&nbsp;
-                Find by Dificulty:
-                <input type="number" min=1 max=10 name="DiffSearch" value="@Model.CurrentFilter"/>
+                <input type="text" name="NameSearchString" value="@Model.CurrentFilter"/>&nbsp;
+                Filter by Dificulty:
+                <input type="number" min=1 max=10 name="DiffSearch" value="@Model.CurrentFilter"/>&nbsp;
+                Filter by Category:
+                <select type="text" name="CategorySearch" asp-items="Model.CategoryOptions">
+                    <option value="">Select Category</option>
+                </select>&nbsp;
+                Filter by Date:
+                <input type="Date" name="StartDateSearch"/>
             </p>
         </div>
         <a asp-page="ChallengeTable">
@@ -69,6 +75,12 @@
                 <td>
                     @Html.DisplayFor(modelitem => item.ChallangeCategory)
                 </td>
+                @*<td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+                *@
             </tr>
         }
     </tbody>

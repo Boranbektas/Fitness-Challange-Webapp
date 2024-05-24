@@ -34,13 +34,6 @@ namespace MyApp.Namespace
                         }).ToList();
 
         }
-        public enum Categories{
-            Strength,
-            Balance,
-            Endurance,
-            Flexibilty
-        }
-
         public IActionResult OnPost(){
             var userId=User.FindFirstValue(ClaimTypes.NameIdentifier);
             NewChallenge.ChallangeUserId=userId;
