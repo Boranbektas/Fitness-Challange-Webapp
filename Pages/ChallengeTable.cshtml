@@ -1,0 +1,72 @@
+﻿@page
+@model MyApp.Namespace.ChallengeTableModel
+@{
+    ViewData["Title"] = "Browse Challenges";
+}
+
+<h2>Challenges</h2>
+
+<p>
+    <a asp-page="ChallengeForm"> Create New Challenge!</a>
+</p>
+
+<form asp-page="ChallengeTable" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by Name:
+            <input type="text" name="searchString" value="@Model.CurrentFilter"/>
+            
+        </p>
+        <a asp-page="ChallengeTable">
+            <input type="button" class="btn btn-primary" value="Original List">
+        </a>
+        <input type="submit" value="Search" class="btn btn-primary"/>
+    </div>
+
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="ChallengeTable" asp-route-sortOrder="@Model.ChallengeNameSort">
+                    @Html.DisplayNameFor(model => model.challenges[0].ChallangeName)
+                </a>
+            </th>
+            <th>
+                <a asp-page="ChallengeTable" asp-route-sortOrder="@Model.ChallengeDateSort">
+                    @Html.DisplayNameFor(model => model.challenges[0].ChallangeStartDate)
+                </a>
+            </th>
+            <th>
+                <a asp-page="ChallengeTable" asp-route-sortOrder="@Model.ChallengeDifficultySort">
+                    @Html.DisplayNameFor(model => model.challenges[0].ChallangeDifficulty)
+                </a>
+            </th>
+            <th>
+                <a asp-page="ChallengeTable" asp-route-sortOrder="@Model.ChallengeCategorySort">
+                    @Html.DisplayNameFor(model => model.challenges[0].ChallangeCategory)
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.challenges)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelitem => item.ChallangeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelitem => item.ChallangeStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelitem => item.ChallangeDifficulty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelitem => item.ChallangeCategory)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
