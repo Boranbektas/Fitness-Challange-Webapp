@@ -1,0 +1,16 @@
+.challangeTableBox{
+    padding: 30px;
+    background: #191919;
+    border: magenta;
+    border-style: solid;
+    border-radius: 12px;
+    color:white
+}
+
+.challangeTableBox tbody {
+    color:white
+}
+
+.challangeTableBox h2{
+    padding-left: 45%;
+}

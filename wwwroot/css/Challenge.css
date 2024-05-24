@@ -13,5 +13,8 @@ h3{
     text-align: center;
     transition: 0.25s;
     margin-top: 60px;
-    color:white
+    color:white;
+    border: magenta;
+    border-style: solid;
+    border-radius: 12px;
 }

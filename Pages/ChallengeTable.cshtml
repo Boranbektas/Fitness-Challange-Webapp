@@ -4,37 +4,34 @@
     ViewData["Title"] = "Browse Challenges";
 }
 
-<h2>Challenges</h2>
 
-<p>
-    <a asp-page="ChallengeForm"> Create New Challenge!</a>
-</p>
-
-<form asp-page="ChallengeTable" method="get">
-    <div class="form-actions no-color">
-        <div>
-            <p>
-                Find by Name:
-                <input type="text" name="NameSearchString" value="@Model.CurrentFilter"/>&nbsp;
-                Filter by Dificulty:
-                <input type="number" min=1 max=10 name="DiffSearch" value="@Model.CurrentFilter"/>&nbsp;
-                Filter by Category:
-                <select type="text" name="CategorySearch" asp-items="Model.CategoryOptions">
-                    <option value="">Select Category</option>
-                </select>&nbsp;
-                Filter by Date:
-                <input type="Date" name="StartDateSearch"/>
-            </p>
-        </div>
-        <a asp-page="ChallengeTable">
-            <input type="button" class="btn btn-primary" value="Original List">
-        </a>
-        <input type="submit" value="Search" class="btn btn-primary"/>
-    </div>
-
+<div class="challangeTableBox">
+<h2 style="color:white">Challenges</h2>
+<br>
+<form asp-page="ChallengeTable" method="get" class="form-actions no-color row">
+        <p>
+            Find by Name:
+            <input type="text" name="NameSearchString" value="@Model.CurrentFilter"/>
+                
+            Filter by Date:
+            <input type="Date" name="StartDateSearch"/>
+                
+            Filter by Category:
+            <select type="text" name="CategorySearch" asp-items="Model.CategoryOptions">
+                <option value="">Select Category</option>
+            </select>&nbsp;
+                
+            Filter by Dificulty:
+            <input type="number" min=1 max=10 name="DiffSearch" value="@Model.CurrentFilter"/>
+                
+            <input type="submit" value="Search" class="btn btn-primary"/>
+            <a asp-page="ChallengeTable">
+                <input type="button" class="btn btn-primary" value="Original List">
+            </a>
+        </p>
 </form>
 
-<table class="table">
+<table class="table" class="row">
     <thead>
         <tr>
             <th>
@@ -57,6 +54,9 @@
                     @Html.DisplayNameFor(model => model.challenges[0].ChallangeCategory)
                 </a>
             </th>
+            <th>
+
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -75,13 +75,13 @@
                 <td>
                     @Html.DisplayFor(modelitem => item.ChallangeCategory)
                 </td>
-                @*<td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <td>
+                    <a asp-page="" asp-route-id="@item.ChallangeId">Details</a> |
+                    <a asp-page="" asp-route-id="@item.ChallangeId">Delete</a>
                 </td>
-                *@
+                
             </tr>
         }
     </tbody>
 </table>
+</div>

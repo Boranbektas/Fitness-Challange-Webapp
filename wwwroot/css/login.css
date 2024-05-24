@@ -14,6 +14,9 @@
     text-align: center;
     transition: 0.25s;
     margin-top: 100px;
+    border: magenta;
+    border-style: solid;
+    border-radius: 12px;
 }
 
 .box h1{

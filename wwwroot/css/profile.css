@@ -1,8 +1,11 @@
 .profileBox{
     width: 900px;
-    height:600px;
+    height:700px;
     background-color: #191919;
     color:white;
     padding-left: 10px;
     padding-right: 10px;
+    border: magenta;
+    border-style: solid;
+    border-radius: 12px;
 }
