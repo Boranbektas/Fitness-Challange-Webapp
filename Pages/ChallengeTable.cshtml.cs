@@ -20,20 +20,25 @@ namespace MyApp.Namespace
         public string CurrentFilter {get;set;}
         public IList<Challenge> challenges{ get; set; }
         
-        public async Task OnGetAsync(string sortOrder,string searchString){
+        public async Task OnGetAsync(string sortOrder,string NameSearchString ,int DiffSearch){
             ChallengeNameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ChallengeDateSort =sortOrder == "date" ? "date_desc":"date";
             ChallengeDifficultySort =sortOrder =="diff" ?  "diff_desc":"diff";
             ChallengeCategorySort = sortOrder == "category" ? "category_desc": "category";
 
-            CurrentFilter = searchString;
+            CurrentFilter = NameSearchString;
 
             IQueryable<Challenge> challengesIQ =from r in _context.Challenges
                                                 select r;
             
-            if(!String.IsNullOrEmpty(searchString))
+            if(!String.IsNullOrEmpty(NameSearchString))
             {
-                challengesIQ = challengesIQ.Where(r => r.ChallangeName.Contains(searchString));
+                challengesIQ = challengesIQ.Where(r => r.ChallangeName.Contains(NameSearchString));
+            }
+
+            if(DiffSearch != 0)
+            {
+                challengesIQ = challengesIQ.Where(r=>r.ChallangeDifficulty == DiffSearch);
             }
 
             switch(sortOrder)

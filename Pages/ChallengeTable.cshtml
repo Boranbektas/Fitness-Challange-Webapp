@@ -12,11 +12,14 @@
 
 <form asp-page="ChallengeTable" method="get">
     <div class="form-actions no-color">
-        <p>
-            Find by Name:
-            <input type="text" name="searchString" value="@Model.CurrentFilter"/>
-            
-        </p>
+        <div>
+            <p>
+                Find by Name:
+                <input type="text" name="NameSearchString" value="@Model.CurrentFilter"/>&nbsp;&nbsp;
+                Find by Dificulty:
+                <input type="number" min=1 max=10 name="DiffSearch" value="@Model.CurrentFilter"/>
+            </p>
+        </div>
         <a asp-page="ChallengeTable">
             <input type="button" class="btn btn-primary" value="Original List">
         </a>
