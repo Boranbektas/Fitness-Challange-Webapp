@@ -16,10 +16,12 @@ namespace MyApp.Namespace
         private readonly ApplicationDbContext _appContext;
         public Challenge challenge{ get; set; }
         public Favorite newFavorite { get; set; }
+        public Comment newComment { get; set; }
         public string ChallangePoster{ get; set; }
         [TempData]
         public string StatusMessage {get;set;}
-      
+        [BindProperty]
+        public string InputCommentText {get;set;}
 
         public ChallengeDetailsModel(FitnessDatabaseContext context , ApplicationDbContext appContext)
         {   
@@ -69,6 +71,24 @@ namespace MyApp.Namespace
                 StatusMessage = "UnFavorited";
             }
             ChallangePoster = user.UserName;
+
+        }
+        public void OnPostComment(int id)
+        {
+            challenge = _context.Challenges.FirstOrDefault(r=> r.ChallangeId == id);
+            var user = _appContext.Users.FirstOrDefault(r => r.Id == challenge.ChallangeUserId);
+            if(user == null){
+                StatusMessage="You cant write comments";
+            }
+            else{
+                newComment = new Comment(){
+                    CommentChallengeId = challenge.ChallangeId,
+                    CommentText = InputCommentText,
+                    CommentUserId = user.Id
+                };
+                _context.Add(newComment);
+                _context.SaveChanges();
+            }
 
         }
     

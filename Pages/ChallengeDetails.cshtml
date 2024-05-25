@@ -39,7 +39,13 @@
     <form style="margin-left:40%" asp-page="ChallengeDetails" asp-page-handler="Delete" asp-route-id=@Model.challenge.ChallangeId  method ="post">
         <input type="submit"  class="btn btn-primary" value="Delete Challenge">
     </form>
-        
-       
+
+    <form style="row" asp-page="ChallengeDetails" asp-page-handler="Comment"asp-route-id="@Model.challenge.ChallangeId" method="post">
+        <label style="color:white" asp-for="InputCommentText">Write a comment!</label> 
+        <textarea asp-for="InputCommentText" class="form-control" rows=3></textarea><br>
+        <input style="margin-left:40%" type="submit" class="btn btn-primary" value="Post comment!"> 
+    </form>
+    @*<a asp-page="ReadComment" asp-route="id">Read This Challenges Comments!</a>*@
+
     
 </div>
