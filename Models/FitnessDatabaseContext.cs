@@ -17,17 +17,14 @@ public partial class FitnessDatabaseContext : DbContext
 
     public virtual DbSet<Challenge> Challenges { get; set; }
 
+    public virtual DbSet<Favorite> Favorites { get; set; }
+
     public virtual DbSet<UserDetail> UserDetails { get; set; }
 
     public virtual DbSet<UserRate> UserRates { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        var builder=WebApplication.CreateBuilder();
-        var connectionString=builder.Configuration.GetConnectionString("FitnessDatabaseConnection");
-        optionsBuilder.UseSqlServer(connectionString);
-    }
-        
+        => optionsBuilder.UseSqlServer("Name=ConnectionStrings:FitnessDatabaseConnection");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -54,6 +51,15 @@ public partial class FitnessDatabaseContext : DbContext
             entity.Property(e => e.ChallangeUserId)
                 .HasMaxLength(450)
                 .HasColumnName("Challange_UserId");
+        });
+
+        modelBuilder.Entity<Favorite>(entity =>
+        {
+            entity.Property(e => e.FavoriteId).HasColumnName("Favorite_id");
+            entity.Property(e => e.FavoriteChallengeId).HasColumnName("Favorite_ChallengeId");
+            entity.Property(e => e.FavoriteUserId)
+                .HasMaxLength(450)
+                .HasColumnName("Favorite_UserId");
         });
 
         modelBuilder.Entity<UserDetail>(entity =>
