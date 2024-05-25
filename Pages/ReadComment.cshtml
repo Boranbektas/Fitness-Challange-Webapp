@@ -6,10 +6,14 @@
 
 <div class="readCommentBox">
     <h2>@Model.challenge.ChallangeName's Comments!</h2>
-    @foreach(var comment in Model.Comments){
-        <div class="commentCard">
-
-        </div>
-    }
-    
+    <ul class="">
+        @foreach(var comment in Model.Comments){
+            <li>
+                <strong>
+                    @comment.CommentUserName |
+                </strong> 
+                @comment.CommentText
+            </li>
+        }
+    </ul>
 </div>

@@ -84,7 +84,8 @@ namespace MyApp.Namespace
                 newComment = new Comment(){
                     CommentChallengeId = challenge.ChallangeId,
                     CommentText = InputCommentText,
-                    CommentUserId = user.Id
+                    CommentUserId = user.Id,
+                    CommentUserName = user.UserName,
                 };
                 _context.Add(newComment);
                 _context.SaveChanges();
