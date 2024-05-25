@@ -45,7 +45,8 @@
         <textarea asp-for="InputCommentText" class="form-control" rows=3></textarea><br>
         <input style="margin-left:40%" type="submit" class="btn btn-primary" value="Post comment!"> 
     </form>
-    @*<a asp-page="ReadComment" asp-route="id">Read This Challenges Comments!</a>*@
+    <br>
+    <a style="margin-left:35%" asp-page="ReadComment" asp-route-id=@Model.challenge.ChallangeId >Read This Challenge's Comments!</a>
 
     
 </div>

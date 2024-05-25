@@ -1,0 +1,17 @@
+.readCommentBox{
+    margin-left: 10%;
+    width: 1000px;
+    height:600px;
+    padding: 30px;
+    background: #191919;
+    border: magenta;
+    border-style: solid;
+    border-radius: 12px;
+    color:white;
+}
+.readCommentBox h2{
+    margin-left: 23%;
+}
+.commentCard{
+
+}

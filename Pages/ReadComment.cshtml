@@ -4,4 +4,12 @@
     ViewData["Title"] ="Read Comments";
 }
 
+<div class="readCommentBox">
+    <h2>@Model.challenge.ChallangeName's Comments!</h2>
+    @foreach(var comment in Model.Comments){
+        <div class="commentCard">
 
+        </div>
+    }
+    
+</div>

@@ -89,6 +89,7 @@ namespace MyApp.Namespace
                 _context.Add(newComment);
                 _context.SaveChanges();
             }
+            ChallangePoster = user.UserName;
 
         }
     
