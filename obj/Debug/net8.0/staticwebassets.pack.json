@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\css\\ReadComment.css"
     },
     {
+      "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\wwwroot\\css\\jquery.rateyo.min.css",
+      "PackagePath": "staticwebassets\\css\\jquery.rateyo.min.css"
+    },
+    {
       "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
@@ -43,6 +47,14 @@
     {
       "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\wwwroot\\images\\empty_pfp.jpg",
       "PackagePath": "staticwebassets\\images\\empty_pfp.jpg"
+    },
+    {
+      "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\wwwroot\\js\\jquery.rateyo.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.rateyo.min.js"
     },
     {
       "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\wwwroot\\js\\site.js",
