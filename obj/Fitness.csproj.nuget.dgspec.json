@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Desktop\\382\\Fitness\\Fitness.csproj": {}
+    "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\Fitness.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Desktop\\382\\Fitness\\Fitness.csproj": {
+    "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\Fitness.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\382\\Fitness\\Fitness.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\Fitness.csproj",
         "projectName": "Fitness",
-        "projectPath": "C:\\Users\\USER\\Desktop\\382\\Fitness\\Fitness.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\Fitness.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\382\\Fitness\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
