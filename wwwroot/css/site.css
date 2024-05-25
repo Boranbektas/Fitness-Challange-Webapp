@@ -21,3 +21,12 @@ body {
   background: linear-gradient(to right, #b92b27, #1565c0);
   margin-bottom: 60px;
 }
+
+.indexBox{
+  background-color:#191919 ;
+  border: magenta;
+  border-style: solid;
+  border-radius: 12px;
+  color:white;
+  padding: 30px;
+}
