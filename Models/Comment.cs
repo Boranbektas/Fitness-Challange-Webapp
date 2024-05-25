@@ -12,4 +12,6 @@ public partial class Comment
     public string? CommentUserId { get; set; }
 
     public string? CommentText { get; set; }
+
+    public string? CommentUserName { get; set; }
 }

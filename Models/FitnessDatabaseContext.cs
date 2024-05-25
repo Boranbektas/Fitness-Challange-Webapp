@@ -63,6 +63,9 @@ public partial class FitnessDatabaseContext : DbContext
             entity.Property(e => e.CommentUserId)
                 .HasMaxLength(450)
                 .HasColumnName("Comment_User_Id");
+            entity.Property(e => e.CommentUserName)
+                .HasMaxLength(100)
+                .HasColumnName("Comment_UserName");
         });
 
         modelBuilder.Entity<Favorite>(entity =>
