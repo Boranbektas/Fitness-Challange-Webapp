@@ -17,6 +17,8 @@ public partial class FitnessDatabaseContext : DbContext
 
     public virtual DbSet<Challenge> Challenges { get; set; }
 
+    public virtual DbSet<Comment> Comments { get; set; }
+
     public virtual DbSet<Favorite> Favorites { get; set; }
 
     public virtual DbSet<UserDetail> UserDetails { get; set; }
@@ -51,6 +53,16 @@ public partial class FitnessDatabaseContext : DbContext
             entity.Property(e => e.ChallangeUserId)
                 .HasMaxLength(450)
                 .HasColumnName("Challange_UserId");
+        });
+
+        modelBuilder.Entity<Comment>(entity =>
+        {
+            entity.Property(e => e.CommentId).HasColumnName("Comment_Id");
+            entity.Property(e => e.CommentChallengeId).HasColumnName("Comment_Challenge_Id");
+            entity.Property(e => e.CommentText).HasColumnName("Comment_Text");
+            entity.Property(e => e.CommentUserId)
+                .HasMaxLength(450)
+                .HasColumnName("Comment_User_Id");
         });
 
         modelBuilder.Entity<Favorite>(entity =>
