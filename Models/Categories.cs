@@ -2,5 +2,6 @@
     Strength,            
     Balance,
     Endurance,
-    Flexibilty
+    Flexibilty,
+    Sports
 }

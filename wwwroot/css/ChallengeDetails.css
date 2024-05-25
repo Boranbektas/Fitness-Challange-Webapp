@@ -1,8 +1,17 @@
 .challangeDetailsBox{
+    margin-left: 10%;
+    width: 1000px;
+    height:500px;
     padding: 30px;
     background: #191919;
     border: magenta;
     border-style: solid;
     border-radius: 12px;
-    color:white
+    color:white;
 }
+
+.challangeDetailsBox h2{
+    text-align: center;
+}
+
+

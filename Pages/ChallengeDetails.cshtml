@@ -4,6 +4,38 @@
     ViewData["ChallengeDetails"] = "Challenge Details";
 }
 
-<div class="challengeDetailsBox">
-    <h2>@Model.challenge.ChallangeName</h2>
+<div class="challangeDetailsBox">
+    <h2>@Model.challenge.ChallangeName</h2><br>
+    <div class="row">
+        <table>
+            <thead>
+                <th>Challange Description</th>
+                <th>Challange Start Date </th>
+                <th>Challange  End Date</th>
+                <th>Challange Difficulty</th>
+                <th>Challange Category</th>
+                <th>Challange Poster</th>
+                <th>Challange Rate</th>
+            </thead>
+            <tbody>
+                <td>@Model.challenge.ChallangeDesc</td>
+                <td>@Model.challenge.ChallangeStartDate</td>
+                <td>@Model.challenge.ChallangeEndDate</td>
+                <td>@Model.challenge.ChallangeDifficulty</td>
+                <td>@Model.challenge.ChallangeCategory</td>
+                <td>@Model.ChallangePoster</td>
+                <td></td>
+            </tbody>
+        </table>
+
+    </div>
+    <div>
+        <form asp-page="ChallengeDetails" method="post">
+            <button asp-route-favorite="favorite" class="btn btn-primary">Add to Favorites!</button>
+        </form>
+        <form asp-page="ChallengeDetails" asp-page-handler="Delete" asp-route-id=@Model.challenge.ChallangeId  method ="post">
+            <input type="submit"  class="btn btn-primary" value="Delete Challenge">
+        </form>
+        
+    </div>
 </div>

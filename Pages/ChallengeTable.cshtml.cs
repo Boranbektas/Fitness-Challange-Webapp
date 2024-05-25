@@ -38,6 +38,7 @@ namespace MyApp.Namespace
             
 
             IQueryable<Challenge> challengesIQ =from r in _context.Challenges
+                                                where r.ChallangeIsDeleted == false
                                                 select r;
             
             if(!String.IsNullOrEmpty(NameSearchString))
