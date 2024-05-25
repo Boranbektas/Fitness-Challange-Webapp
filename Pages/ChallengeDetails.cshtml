@@ -3,9 +3,8 @@
 @{
     ViewData["ChallengeDetails"] = "Challenge Details";
 }
-
-<div class="alert">
-    @Model.StatusMessage
+<div class="challangeDetailAlert" >
+        <h4>@Model.StatusMessage</h4>
 </div>
 
 <div class="challangeDetailsBox">
@@ -32,14 +31,15 @@
             </tbody>
         </table>
 
-    </div>
-    <div>
-        <form class="col-md-6"asp-page="ChallengeDetails" asp-page-handler="Favorite" asp-route-id=@Model.challenge.ChallangeId method="post">
-            <input type="submit"  class="btn btn-primary" value="Favorite">
-        </form>
-        <form class= "col-md-6" asp-page="ChallengeDetails" asp-page-handler="Delete" asp-route-id=@Model.challenge.ChallangeId  method ="post">
-            <input type="submit"  class="btn btn-primary" value="Delete Challenge">
-        </form>
+    </div><br>
+           
+    <form style="margin-left:43%" asp-page="ChallengeDetails" asp-page-handler="Favorite" asp-route-id=@Model.challenge.ChallangeId method="post">
+        <input type="submit"  class="btn btn-primary" value="Favorite">
+    </form><br>
+    <form style="margin-left:40%" asp-page="ChallengeDetails" asp-page-handler="Delete" asp-route-id=@Model.challenge.ChallangeId  method ="post">
+        <input type="submit"  class="btn btn-primary" value="Delete Challenge">
+    </form>
         
-    </div>
+       
+    
 </div>

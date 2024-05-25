@@ -17,8 +17,6 @@ namespace MyApp.Namespace
         public Challenge challenge{ get; set; }
         public Favorite newFavorite { get; set; }
         public string ChallangePoster{ get; set; }
-        public string favorite { get; set; }
-        public string delete { get; set; }
         [TempData]
         public string StatusMessage {get;set;}
       
@@ -47,6 +45,7 @@ namespace MyApp.Namespace
                 return RedirectToPage("ChallengeTable");
             }
             StatusMessage = "You cannot delete this challenge.";
+            ChallangePoster = user.UserName;
             return Page();
         }
         public void OnPostFavorite(int id){
@@ -54,7 +53,7 @@ namespace MyApp.Namespace
             var user = _appContext.Users.FirstOrDefault(r => r.Id == challenge.ChallangeUserId);
 
             var result = _context.Favorites.FirstOrDefault(r=> r.FavoriteUserId == user.Id && r.FavoriteChallengeId == challenge.ChallangeId);
-            
+
             if(result == null){
                 newFavorite = new Favorite();
                  newFavorite.FavoriteChallengeId = challenge.ChallangeId;
@@ -69,6 +68,7 @@ namespace MyApp.Namespace
                 _context.SaveChanges();
                 StatusMessage = "UnFavorited";
             }
+            ChallangePoster = user.UserName;
 
         }
     
