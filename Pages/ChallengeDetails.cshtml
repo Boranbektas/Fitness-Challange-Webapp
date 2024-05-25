@@ -4,6 +4,10 @@
     ViewData["ChallengeDetails"] = "Challenge Details";
 }
 
+<div class="alert">
+    @Model.StatusMessage
+</div>
+
 <div class="challangeDetailsBox">
     <h2>@Model.challenge.ChallangeName</h2><br>
     <div class="row">
@@ -30,10 +34,10 @@
 
     </div>
     <div>
-        <form asp-page="ChallengeDetails" method="post">
-            <button asp-route-favorite="favorite" class="btn btn-primary">Add to Favorites!</button>
+        <form class="col-md-6"asp-page="ChallengeDetails" asp-page-handler="Favorite" asp-route-id=@Model.challenge.ChallangeId method="post">
+            <input type="submit"  class="btn btn-primary" value="Favorite">
         </form>
-        <form asp-page="ChallengeDetails" asp-page-handler="Delete" asp-route-id=@Model.challenge.ChallangeId  method ="post">
+        <form class= "col-md-6" asp-page="ChallengeDetails" asp-page-handler="Delete" asp-route-id=@Model.challenge.ChallangeId  method ="post">
             <input type="submit"  class="btn btn-primary" value="Delete Challenge">
         </form>
         

@@ -20,7 +20,7 @@ namespace MyApp.Namespace
         public string favorite { get; set; }
         public string delete { get; set; }
         [TempData]
-         public string StatusMessage {get;set;}
+        public string StatusMessage {get;set;}
       
 
         public ChallengeDetailsModel(FitnessDatabaseContext context , ApplicationDbContext appContext)
@@ -32,12 +32,6 @@ namespace MyApp.Namespace
         {   
             challenge = _context.Challenges.FirstOrDefault(r=> r.ChallangeId == id);
             var user = _appContext.Users.FirstOrDefault(r => r.Id == challenge.ChallangeUserId);
-            if(favorite == "favorite"){
-                newFavorite.FavoriteChallengeId = challenge.ChallangeId;
-                newFavorite.FavoriteUserId = user.Id;
-                _context.Favorites.Add(newFavorite);
-                _context.SaveChanges();
-            }
             ChallangePoster = user.UserName;
             return Page();
         }
@@ -55,7 +49,26 @@ namespace MyApp.Namespace
             StatusMessage = "You cannot delete this challenge.";
             return Page();
         }
-        public void OnPostFavorite(){
+        public void OnPostFavorite(int id){
+            challenge = _context.Challenges.FirstOrDefault(r=> r.ChallangeId == id);
+            var user = _appContext.Users.FirstOrDefault(r => r.Id == challenge.ChallangeUserId);
+
+            var result = _context.Favorites.FirstOrDefault(r=> r.FavoriteUserId == user.Id && r.FavoriteChallengeId == challenge.ChallangeId);
+            
+            if(result == null){
+                newFavorite = new Favorite();
+                 newFavorite.FavoriteChallengeId = challenge.ChallangeId;
+                newFavorite.FavoriteUserId = user.Id;
+
+                _context.Favorites.Add(newFavorite);
+                _context.SaveChanges();
+                StatusMessage = "Favorited";
+            }
+            else{
+                _context.Favorites.Remove(result);
+                _context.SaveChanges();
+                StatusMessage = "UnFavorited";
+            }
 
         }
     
