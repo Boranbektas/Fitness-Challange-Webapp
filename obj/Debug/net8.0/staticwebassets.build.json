@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1m2SovnisoGXz1Abi1M9c1KEWe6pRABvjBFzr3s3lvY=",
+  "Hash": "qYF4/k4eaOVLJai9C2EGTAkqUbqhtHMXDw8KIAzdp84=",
   "Source": "Fitness",
   "BasePath": "_content/Fitness",
   "Mode": "Default",
@@ -1212,6 +1212,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Challenge.css"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\wwwroot\\css\\ChallengeDetails.css",
+      "SourceId": "Fitness",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\wwwroot\\",
+      "BasePath": "_content/Fitness",
+      "RelativePath": "css/ChallengeDetails.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\ChallengeDetails.css"
     },
     {
       "Identity": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\wwwroot\\css\\ChallengeTable.css",

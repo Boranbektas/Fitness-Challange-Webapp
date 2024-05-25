@@ -76,8 +76,7 @@
                     @Html.DisplayFor(modelitem => item.ChallangeCategory)
                 </td>
                 <td>
-                    <a asp-page="" asp-route-id="@item.ChallangeId">Details</a> |
-                    <a asp-page="" asp-route-id="@item.ChallangeId">Delete</a>
+                    <a asp-page="ChallengeDetails" asp-route-id="@item.ChallangeId">Details</a>
                 </td>
                 
             </tr>

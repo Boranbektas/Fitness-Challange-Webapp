@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\Challenge.css"
     },
     {
+      "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\wwwroot\\css\\ChallengeDetails.css",
+      "PackagePath": "staticwebassets\\css\\ChallengeDetails.css"
+    },
+    {
       "Id": "C:\\Users\\USER\\Desktop\\382\\Fitness-Challange-Webapp\\wwwroot\\css\\ChallengeTable.css",
       "PackagePath": "staticwebassets\\css\\ChallengeTable.css"
     },
