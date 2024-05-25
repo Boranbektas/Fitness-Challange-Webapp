@@ -25,3 +25,10 @@
 .box label {
     color: black; /* Ensure the labels are white to contrast with the dark background */
 }
+
+.ManageNavbar{
+    background: #191919;
+    border: magenta;
+    border-style: solid;
+    border-radius: 12px;
+}
