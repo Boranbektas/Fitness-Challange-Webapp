@@ -1,4 +1,24 @@
 ﻿@page
 @model MyApp.Namespace.FavChallangesModel
 @{
+    ViewData["Title"] = "Your Favorite Challenges";
 }
+<div class="FavChallengeBox">
+    <table clas="table row" >
+        <thead style="text-align-center">
+            <th>Challenge Name |</th>
+            <th>Challenge Category |</th>
+            <th> Challenge Start Date |</th>
+            <th> Challenge Description </th>
+        </thead>
+        <tbody style="text-align:center">
+            @foreach(var item in Model.challenges){
+                <td>@item.ChallangeName </td>
+                <td>@item.ChallangeCategory </td>
+                <td>@item.ChallangeStartDate </td>
+                <td>@item.ChallangeDesc </td>
+            }
+
+        </tbody>
+    </table>
+</div>
