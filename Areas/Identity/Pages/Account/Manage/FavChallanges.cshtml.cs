@@ -27,8 +27,9 @@ namespace MyApp.Namespace
             var user = await _userManager.GetUserAsync(User);
             var query = from favs in _context.Favorites
                                 join challenge in _context.Challenges on favs.FavoriteChallengeId equals challenge.ChallangeId  
-                                where favs.FavoriteUserId == user.Id
+                                where favs.FavoriteUserId == user.Id && challenge.ChallangeIsDeleted == false
                                 select challenge;
+                                
             challenges = query.ToList();
             return Page();
         }
