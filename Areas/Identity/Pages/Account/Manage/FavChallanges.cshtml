@@ -13,10 +13,12 @@
         </thead>
         <tbody style="text-align:center">
             @foreach(var item in Model.challenges){
-                <td>@item.ChallangeName </td>
-                <td>@item.ChallangeCategory </td>
-                <td>@item.ChallangeStartDate </td>
-                <td>@item.ChallangeDesc </td>
+                <tr>
+                    <td>@item.ChallangeName </td>
+                    <td>@item.ChallangeCategory </td>
+                    <td>@item.ChallangeStartDate </td>
+                    <td>@item.ChallangeDesc </td>
+                </tr>
             }
 
         </tbody>
